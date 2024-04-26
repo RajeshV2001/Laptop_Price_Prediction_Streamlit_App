@@ -64,31 +64,33 @@ msoffice=np.array(['No' ,'Yes'])
 
 st.title("Laptop Price Prediction")
 st.sidebar.title("RAJESH")
-st.sidebar.header("Select Below features to predict price")
+st.header("Select below features to predict price")
 
-with st.container():
-    br=st.sidebar.selectbox(label="Brand",options=brand)
-    pb=st.sidebar.selectbox(label="Processor Brand",options=processor_brand)
-    pn=st.sidebar.selectbox(label="Processor name",options=processor_name)
-    pg=st.sidebar.selectbox(label="Processor generation",options=processor_gnrtn)
-    ramgb=st.sidebar.selectbox(label="RAM GB",options=ram_gb)
-    ramtp=st.sidebar.selectbox(label="RAM Type",options=ram_type)
-    sd=st.sidebar.selectbox(label="SSD",options=ssd)
-    hd=st.sidebar.selectbox(label="HDD",options=hdd)
-    o_s=st.sidebar.selectbox(label="OS",options=os)
-    osbit=st.sidebar.selectbox(label="OS Bits",options=os_bit)
-    gc=st.sidebar.selectbox(label="Graphic Card GB",options=graphic_card_gb)
-    wt=st.sidebar.selectbox(label="Weight",options=weight)
-    wrnt=st.sidebar.selectbox(label="Warranty",options=warranty)
-    tch=st.sidebar.selectbox(label="Touchscreen",options=Touchscreen)
-    ms=st.sidebar.selectbox(label="MS Office",options=msoffice)
+c1,_=st.columns([2,1])
+
+with c1.container():
+    br=st.selectbox(label="Brand",options=brand)
+    pb=st.selectbox(label="Processor Brand",options=processor_brand)
+    pn=st.selectbox(label="Processor name",options=processor_name)
+    pg=st.selectbox(label="Processor generation",options=processor_gnrtn)
+    ramgb=st.selectbox(label="RAM GB",options=ram_gb)
+    ramtp=st.selectbox(label="RAM Type",options=ram_type)
+    sd=st.selectbox(label="SSD",options=ssd)
+    hd=st.selectbox(label="HDD",options=hdd)
+    o_s=st.selectbox(label="OS",options=os)
+    osbit=st.selectbox(label="OS Bits",options=os_bit)
+    gc=st.selectbox(label="Graphic Card GB",options=graphic_card_gb)
+    wt=st.selectbox(label="Weight",options=weight)
+    wrnt=st.selectbox(label="Warranty",options=warranty)
+    tch=st.selectbox(label="Touchscreen",options=Touchscreen)
+    ms=st.selectbox(label="MS Office",options=msoffice)
 
 lst=[br,pb,pn,pg,ramgb,ramtp,sd,hd,o_s,osbit,gc,wt,wrnt,tch,ms]
 
 
 with st.container():
     
-    col1,col2=st.sidebar.columns([2,1])
+    col1,col2=st.columns([2,1])
     
     if col1.button("Predict"):
         df=pd.DataFrame(columns=['brand','processor_brand','processor_name','processor_gnrtn','ram_gb','ram_type','ssd','hdd','os','os_bit','graphic_card_gb','weight','warranty','Touchscreen','msoffice'])
